@@ -62,46 +62,52 @@
         app:layout_constraintTop_toBottomOf="@+id/header"
         tools:layout_constraintTop_toBottomOf="@id/header">
 
+        <TextView
+            android:id="@+id/ingrese_datos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_vertical"
+            android:text="@string/ingrese_datos"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <EditText
-            android:id="@+id/Nombre"
+            android:id="@+id/nombre"
             android:layout_width="306dp"
             android:layout_height="55dp"
-            android:ems="10"
+            android:layout_marginBottom="15dp"
             android:inputType="text"
             android:text="@string/nombre" />
 
         <EditText
-            android:id="@+id/Apellido"
+            android:id="@+id/apellido"
             android:layout_width="306dp"
             android:layout_height="55dp"
+            android:layout_marginBottom="15dp"
             android:ems="10"
             android:inputType="text"
             android:text="@string/apellido" />
 
         <EditText
-            android:id="@+id/editTextText3"
+            android:id="@+id/correo"
             android:layout_width="306dp"
             android:layout_height="55dp"
+            android:layout_marginBottom="30dp"
             android:ems="10"
             android:inputType="text"
             android:text="@string/correo" />
 
         <Button
-            android:id="@+id/reservar"
+            android:id="@+id/siguiente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/reservar_turno"
+            android:text="@string/siguiente"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
 
     </LinearLayout>
 
