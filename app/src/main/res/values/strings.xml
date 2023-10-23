@@ -9,4 +9,9 @@
     <string name="correo">Correo</string>
     <string name="ingrese_datos">Por favor, ingrese sus datos</string>
     <string name="siguiente">Siguiente</string>
+    <string-array name="obrasocial">
+        <item>Osde</item>
+        <item>OMINT</item>
+        <item>Swiss Medical</item>
+    </string-array>
 </resources>
