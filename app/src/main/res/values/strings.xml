@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">parcial_1_am_acn4a_serenelli_kitagawa</string>
+    <string name="login">Login</string>
+    <string name="reservar_turno">Reservar turno</string>
+    <string name="nombre_app">TURNLAB</string>
+    <string name="menu">Menu</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="correo">Correo</string>
 </resources>
