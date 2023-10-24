@@ -7,11 +7,15 @@
     <string name="nombre">Nombre</string>
     <string name="apellido">Apellido</string>
     <string name="correo">Correo</string>
+    <string name="sexo">Sexo</string>
     <string name="ingrese_datos">Por favor, ingrese sus datos</string>
     <string name="siguiente">Siguiente</string>
+    <string name="nacimiento">Fecha de nacimiento</string>
+    <string name="seleccion_obrasocial">Seleccione su obra social:</string>
     <string-array name="obrasocial">
-        <item>Osde</item>
+        <item>"PARTICULAR"</item>
+        <item>OSDE</item>
         <item>OMINT</item>
-        <item>Swiss Medical</item>
+        <item>SWISS MEDICAL</item>
     </string-array>
 </resources>
