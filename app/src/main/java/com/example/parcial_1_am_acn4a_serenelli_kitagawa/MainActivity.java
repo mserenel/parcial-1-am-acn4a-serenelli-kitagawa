@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Spinner obrasocial=findViewById(R.id.obrasocial);
+        Spinner sexo=findViewById(R.id.sexo);
 
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this, R.array.obrasocial, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this, R.array.sexo, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
 
-        obrasocial.setAdapter(adapter);
+        sexo.setAdapter(adapter);
     }
 }

@@ -12,7 +12,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
-        android:background="#367591"
+        android:background="@color/gris"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,7 +27,8 @@
             android:layout_height="wrap_content"
             android:baselineAligned="false"
             android:text="@string/menu"
-            app:iconTint="#DFC5C5" />
+            android:textColor="#EDEDED"
+            android:textColorHighlight="#00937171" />
 
         <TextView
             android:id="@+id/textView"
@@ -35,16 +36,15 @@
             android:layout_height="33dp"
             android:text="@string/nombre_app"
             android:textAlignment="center"
-            android:textColor="#F1EEEE"
+            android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/login"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login"
-            app:iconTint="#DFC5C5" />
+            android:text="@string/login" />
 
     </LinearLayout>
 
@@ -52,7 +52,7 @@
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#7AAABF"
+        android:background="@drawable/rest"
         android:gravity="center_horizontal|center_vertical"
         android:orientation="vertical"
         android:visibility="visible"
@@ -64,11 +64,13 @@
 
         <TextView
             android:id="@+id/ingrese_datos"
-            android:layout_width="wrap_content"
+            android:layout_width="306dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:background="@color/gris"
             android:gravity="center_vertical"
             android:text="@string/ingrese_datos"
+            android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -78,7 +80,8 @@
             android:layout_height="55dp"
             android:layout_marginBottom="15dp"
             android:inputType="text"
-            android:text="@string/nombre" />
+            android:hint="@string/nombre"
+            android:background="@color/gris"/>
 
         <EditText
             android:id="@+id/apellido"
@@ -87,7 +90,8 @@
             android:layout_marginBottom="15dp"
             android:ems="10"
             android:inputType="text"
-            android:text="@string/apellido" />
+            android:hint="@string/apellido"
+            android:background="@color/gris"/>
 
         <EditText
             android:id="@+id/correo"
@@ -96,15 +100,8 @@
             android:layout_marginBottom="15dp"
             android:ems="10"
             android:inputType="text"
-            android:text="@string/correo" />
-
-        <EditText
-            android:id="@+id/sexo"
-            android:layout_width="306dp"
-            android:layout_height="55dp"
-            android:layout_marginBottom="15dp"
-            android:inputType="text"
-            android:text="@string/sexo" />
+            android:hint="@string/correo"
+            android:background="@color/gris"/>
 
         <EditText
             android:id="@+id/nacimiento"
@@ -113,29 +110,45 @@
             android:layout_marginBottom="15dp"
             android:ems="10"
             android:inputType="date"
-            android:text="@string/nacimiento" />
-
+            android:hint="@string/nacimiento"
+            android:background="@color/gris"/>
 
         <TextView
+            android:id="@+id/indique_sexo"
             android:layout_width="306dp"
             android:layout_height="55dp"
-            android:text="@string/seleccion_obrasocial"
-            android:textSize="18sp"
+            android:background="@color/gris"
+            android:gravity="start|center_vertical"
+            android:text="@string/seleccion_sexo"
+            android:textAlignment="viewStart"
             android:textColor="#000000"
-            android:gravity="start|center_vertical" />
+            android:textSize="18sp" />
 
         <Spinner
-            android:id="@+id/obrasocial"
+            android:id="@+id/sexo"
             android:layout_width="306dp"
             android:layout_height="55dp"
-            android:layout_marginBottom="30dp"
-            android:spinnerMode="dropdown" />
+            android:layout_marginBottom="15dp"
+            android:spinnerMode="dropdown"
+            android:background="@color/gris"/>
+
+
+        <EditText
+            android:id="@+id/contrasena"
+            android:layout_width="306dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/gris"
+            android:inputType="textPassword"
+            android:hint="@string/contrasena" />
 
         <Button
             android:id="@+id/siguiente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/siguiente"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
