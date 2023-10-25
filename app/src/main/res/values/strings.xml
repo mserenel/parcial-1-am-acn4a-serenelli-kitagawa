@@ -8,7 +8,6 @@
     <string name="apellido">Apellido</string>
     <string name="correo">Correo</string>
     <string name="contrasena">contrasena</string>
-    <string name="ingrese_datos">INGRESE SUS DATOS</string>
     <string name="siguiente">Siguiente</string>
     <string name="nacimiento">Fecha de nacimiento</string>
     <string name="seleccion_sexo">Indique su sexo</string>

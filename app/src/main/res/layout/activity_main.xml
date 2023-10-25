@@ -69,7 +69,6 @@
             android:layout_marginBottom="20dp"
             android:background="@color/gris"
             android:gravity="center_vertical"
-            android:text="@string/ingrese_datos"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
