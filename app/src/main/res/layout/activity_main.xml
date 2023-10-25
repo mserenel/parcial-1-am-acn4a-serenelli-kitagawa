@@ -12,7 +12,6 @@
         android:layout_height="48dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
-        android:background="@color/gris"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,30 +20,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <Button
-            android:id="@+id/menu"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/hamb"
+            android:layout_width="85dp"
             android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:text="@string/menu"
-            android:textColor="#EDEDED"
-            android:textColorHighlight="#00937171" />
+            android:background="@color/rojo"
+            app:srcCompat="@drawable/hamb" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="237dp"
-            android:layout_height="33dp"
+            android:background="@color/gris"
+            android:layout_width="235dp"
+            android:layout_height="48dp"
             android:text="@string/nombre_app"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="34sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/login" />
+        <ImageView
+            android:id="@+id/user"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@color/rojo"
+            app:srcCompat="@drawable/user" />
 
     </LinearLayout>
 
@@ -137,7 +137,7 @@
             android:id="@+id/contrasena"
             android:layout_width="306dp"
             android:layout_height="55dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="20dp"
             android:background="@color/gris"
             android:inputType="textPassword"
             android:hint="@string/contrasena" />
@@ -146,10 +146,12 @@
             android:id="@+id/siguiente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/rojo"
+            android:backgroundTint="@color/rojo"
             android:text="@string/siguiente"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:visibility="visible"
+            android:textColorHighlight="@color/rojo"
+            android:textColorLink="@color/rojo"
+            android:textStyle="normal|bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
