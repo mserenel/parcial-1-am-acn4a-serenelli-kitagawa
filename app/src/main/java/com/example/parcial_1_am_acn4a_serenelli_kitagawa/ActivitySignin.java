@@ -64,6 +64,11 @@ public class ActivitySignin extends AppCompatActivity {
             return;
         }
 
+        Intent intent = new Intent(this, ActivityLogin.class);
+        intent.putExtra("correo", correo);
+        intent.putExtra("clave", contraseña);
+        startActivity(intent);
+
         Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
     }
 
@@ -71,4 +76,6 @@ public class ActivitySignin extends AppCompatActivity {
         Intent intent = new Intent(this, ActivityLogin.class);
         startActivity(intent);
     }
+
+
 }
