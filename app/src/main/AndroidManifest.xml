@@ -13,7 +13,16 @@
         android:theme="@style/Theme.Parcial_1_am_acn4a_serenelli_kitagawa"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityNuevaReserva"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySignin"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityLogin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

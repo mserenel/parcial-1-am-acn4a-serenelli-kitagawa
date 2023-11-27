@@ -64,23 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/header"
         tools:layout_constraintTop_toBottomOf="@id/header">
 
-        <Button
-            android:id="@+id/mis_reservas"
-            android:text="@string/mis_reservas"
-            android:textStyle="normal|bold"
-            android:layout_width="306dp"
-            android:layout_height="55dp"
-            android:layout_marginBottom="20dp" />
 
-
-        <Button
-            android:id="@+id/nueva_reserva"
-            android:text="@string/nueva_reserva"
-            android:textStyle="normal|bold"
-            android:layout_width="306dp"
-            android:layout_height="55dp"
-            android:layout_marginBottom="20dp"
- />
 
 
     </LinearLayout>

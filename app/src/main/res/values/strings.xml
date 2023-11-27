@@ -1,16 +1,20 @@
 <resources>
     <string name="app_name">parcial_1_am_acn4a_serenelli_kitagawa</string>
-    <string name="login">Login</string>
+    <string name="n1">Registrate</string>
     <string name="reservar_turno">Reservar turno</string>
     <string name="nombre_app">RESRES</string>
     <string name="menu">Menu</string>
     <string name="nombre">Nombre</string>
     <string name="apellido">Apellido</string>
     <string name="correo">Correo</string>
-    <string name="contrasena">contrasena</string>
-    <string name="siguiente">Siguiente</string>
+    <string name="contrasena">Contrasena</string>
+    <string name="ingresar">Ingresar</string>
     <string name="nacimiento">Fecha de nacimiento</string>
     <string name="seleccion_sexo">Indique su sexo</string>
+    <string name="visual_imagen_hamb">Imagen de menu Hamburguesa</string>
+    <string name="visual_imagen_usr">Imagen de usuario</string>
+    <string name="mis_reservas">Mis reservas</string>
+    <string name="nueva_reserva">Nueva reserva</string>
     <string-array name="sexo">
         <item>NO ACLARAR</item>
         <item>"MASCULINO"</item>

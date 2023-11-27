@@ -64,23 +64,86 @@
         app:layout_constraintTop_toBottomOf="@+id/header"
         tools:layout_constraintTop_toBottomOf="@id/header">
 
-        <Button
-            android:id="@+id/mis_reservas"
-            android:text="@string/mis_reservas"
-            android:textStyle="normal|bold"
+
+        <EditText
+            android:id="@+id/nombre"
             android:layout_width="306dp"
             android:layout_height="55dp"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="15dp"
+            android:inputType="text"
+            android:hint="@string/nombre"
+            android:background="@color/gris"/>
+
+        <EditText
+            android:id="@+id/apellido"
+            android:layout_width="306dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="15dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/apellido"
+            android:background="@color/gris"/>
+
+        <EditText
+            android:id="@+id/correo"
+            android:layout_width="306dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="15dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/correo"
+            android:background="@color/gris"/>
+
+        <EditText
+            android:id="@+id/nacimiento"
+            android:layout_width="306dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="15dp"
+            android:ems="10"
+            android:inputType="date"
+            android:hint="@string/nacimiento"
+            android:background="@color/gris"/>
+
+        <TextView
+            android:id="@+id/indique_sexo"
+            android:layout_width="306dp"
+            android:layout_height="55dp"
+            android:background="@color/gris"
+            android:gravity="start|center_vertical"
+            android:text="@string/seleccion_sexo"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/sexo"
+            android:layout_width="306dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="15dp"
+            android:spinnerMode="dropdown"
+            android:background="@color/gris"/>
 
 
-        <Button
-            android:id="@+id/nueva_reserva"
-            android:text="@string/nueva_reserva"
-            android:textStyle="normal|bold"
+        <EditText
+            android:id="@+id/contrasena"
             android:layout_width="306dp"
             android:layout_height="55dp"
             android:layout_marginBottom="20dp"
- />
+            android:background="@color/gris"
+            android:inputType="textPassword"
+            android:hint="@string/contrasena" />
+
+        <Button
+            android:id="@+id/siguiente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/n1"
+            android:onClick="openInicioActivity"
+            android:textStyle="normal|bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </LinearLayout>
