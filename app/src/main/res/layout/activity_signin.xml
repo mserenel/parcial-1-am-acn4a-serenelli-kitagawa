@@ -138,7 +138,7 @@
             android:layout_width="125dp"
             android:layout_height="50dp"
             android:text="@string/n1"
-            android:onClick="openInicioActivity"
+            android:onClick="onLogin"
             android:textStyle="normal|bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

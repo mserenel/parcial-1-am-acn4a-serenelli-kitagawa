@@ -1,5 +1,6 @@
 package com.example.parcial_1_am_acn4a_serenelli_kitagawa;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -11,6 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 
 public class ActivityLogin extends AppCompatActivity {
 
@@ -37,34 +46,52 @@ public class ActivityLogin extends AppCompatActivity {
             button.setVisibility(View.VISIBLE);
         }
 
-        Intent intent = getIntent();
-        if (intent != null) {
-            correo = intent.getStringExtra("correo");
-            contrasena = intent.getStringExtra("clave");
-        }
     }
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         checkConnection();
+        mAuth = FirebaseAuth.getInstance();
     }
 
-    public void OpenActivity(View v) {
-        EditText editTextCorreo = findViewById(R.id.correo);
-        EditText editTextContrasena = findViewById(R.id.contrasena);
-
-
-        String correoIngresado = editTextCorreo.getText().toString().trim();
-        String contrasenaIngresada = editTextContrasena.getText().toString().trim();
-
-        if (correoIngresado.equals(correo) && contrasenaIngresada.equals(contrasena)) {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        } else {
-            Toast.makeText(this, "Correo o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            String email = currentUser.getEmail();
+            Log.i("firebase","Hay usuario");
+        }else {
+            Log.i("firebase","No hay usuario");
         }
+    }
+
+    public void signIn(String correo,String contrasena){
+        mAuth.createUserWithEmailAndPassword(correo,contrasena).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+
+                }else{
+
+                }
+            }
+        });
+    }
+
+    public void onLogin(View v){
+        EditText correo = findViewById(R.id.correo);
+        EditText contrasena = findViewById(R.id.contrasena);
+
+        String emailString = correo.getText().toString();
+        String contrasenaString= contrasena.getText().toString();
+
+        this.signIn(emailString,contrasenaString);
     }
 
     public void openRegistrationActivity(View v){

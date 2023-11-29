@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "672835905880",
+    "project_id": "serenelli-kitagawa",
+    "storage_bucket": "serenelli-kitagawa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672835905880:android:32292b517fd890d4271d2d",
+        "android_client_info": {
+          "package_name": "com.example.parcial_1_am_acn4a_serenelli_kitagawa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuN-w8NzwOW0PHfgGennO7OQw0eWjjUn8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
