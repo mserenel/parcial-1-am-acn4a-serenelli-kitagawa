@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,19 +17,24 @@ public class ActivityLogin extends AppCompatActivity {
     private String correo;
     private String contrasena;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
+    public void checkConnectiononClick(View view){
+        checkConnection();
+    }
+    public void checkConnection(){
         ConnectivityManager connectivityManager= (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
+        TextView mensaje = findViewById(R.id.mensaje);
+        Button button = findViewById(R.id.reitentar);
+
         if(networkInfo != null && networkInfo.isConnected()){
             Log.i("network_testing","Prueba de red");
+            mensaje.setVisibility(View. INVISIBLE);
+            button.setVisibility(View.INVISIBLE);
         }else {
-            TextView mensaje = findViewById(R.id.mensaje);
-                    mensaje.setText("Internet no disponible");
+            mensaje.setText("Internet no disponible");
+            mensaje.setVisibility(View.VISIBLE);
+            button.setVisibility(View.VISIBLE);
         }
 
         Intent intent = getIntent();
@@ -36,6 +42,13 @@ public class ActivityLogin extends AppCompatActivity {
             correo = intent.getStringExtra("correo");
             contrasena = intent.getStringExtra("clave");
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        checkConnection();
     }
 
     public void OpenActivity(View v) {
@@ -58,4 +71,6 @@ public class ActivityLogin extends AppCompatActivity {
         Intent intent = new Intent(this, ActivitySignin.class);
         startActivity(intent);
     }
+
+
 }

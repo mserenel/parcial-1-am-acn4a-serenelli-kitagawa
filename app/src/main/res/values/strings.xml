@@ -19,6 +19,7 @@
     <string name="gourmet_porteno">Gourmet Porteno</string>
     <string name="la_bistecca">La Bistecca</string>
     <string name="la_parolaccia">La Parolaccia</string>
+    <string name="reintentar" />
     <string-array name="sexo">
         <item>NO ACLARAR</item>
         <item>"MASCULINO"</item>
