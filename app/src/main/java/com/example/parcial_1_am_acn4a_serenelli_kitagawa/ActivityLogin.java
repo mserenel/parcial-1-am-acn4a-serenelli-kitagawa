@@ -2,9 +2,13 @@ package com.example.parcial_1_am_acn4a_serenelli_kitagawa;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ActivityLogin extends AppCompatActivity {
@@ -16,6 +20,16 @@ public class ActivityLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        ConnectivityManager connectivityManager= (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+        if(networkInfo != null && networkInfo.isConnected()){
+            Log.i("network_testing","Prueba de red");
+        }else {
+            TextView mensaje = findViewById(R.id.mensaje);
+                    mensaje.setText("Internet no disponible");
+        }
 
         Intent intent = getIntent();
         if (intent != null) {

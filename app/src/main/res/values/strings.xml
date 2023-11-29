@@ -15,6 +15,10 @@
     <string name="visual_imagen_usr">Imagen de usuario</string>
     <string name="mis_reservas">Mis reservas</string>
     <string name="nueva_reserva">Nueva reserva</string>
+    <string name="hardrock">HardRock</string>
+    <string name="gourmet_porteno">Gourmet Porteno</string>
+    <string name="la_bistecca">La Bistecca</string>
+    <string name="la_parolaccia">La Parolaccia</string>
     <string-array name="sexo">
         <item>NO ACLARAR</item>
         <item>"MASCULINO"</item>

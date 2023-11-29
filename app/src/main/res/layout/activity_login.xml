@@ -64,6 +64,15 @@
         app:layout_constraintTop_toBottomOf="@+id/header"
         tools:layout_constraintTop_toBottomOf="@id/header">
 
+        <TextView
+            android:id="@+id/mensaje"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:textAlignment="center"
+            android:textColor="#FFFEFE"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/correo"
             android:layout_width="306dp"
@@ -105,7 +114,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="OnClick" />
-
 
     </LinearLayout>
 
