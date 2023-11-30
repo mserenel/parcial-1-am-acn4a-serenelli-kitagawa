@@ -71,27 +71,30 @@ public class ActivityLogin extends AppCompatActivity {
         }
     }
 
-    public void signIn(String correo,String contrasena){
-        mAuth.createUserWithEmailAndPassword(correo,contrasena).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+    public void LogIn(String correo, String contrasena) {
+        mAuth.createUserWithEmailAndPassword(correo, contrasena).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-
-                }else{
-
+                if (task.isSuccessful()) {
+                    // La sesión se inició correctamente
+                    Toast.makeText(ActivityLogin.this, "Sesión iniciada", Toast.LENGTH_SHORT).show();
+                } else {
+                    // La sesión no se inició correctamente
+                    Toast.makeText(ActivityLogin.this, "Error al iniciar sesión", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    public void onLogin(View v){
+
+    public void onLogIn(View v){
         EditText correo = findViewById(R.id.correo);
         EditText contrasena = findViewById(R.id.contrasena);
 
         String emailString = correo.getText().toString();
         String contrasenaString= contrasena.getText().toString();
 
-        this.signIn(emailString,contrasenaString);
+        this.LogIn(emailString,contrasenaString);
     }
 
     public void openRegistrationActivity(View v){

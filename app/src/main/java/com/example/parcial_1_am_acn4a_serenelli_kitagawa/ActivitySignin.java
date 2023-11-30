@@ -40,7 +40,7 @@ public class ActivitySignin extends AppCompatActivity {
     }
 
     private FirebaseAuth mAuth;
-    public void login(String correo, String contrasena) {
+    public void SignIn(String correo, String contrasena) {
         mAuth.signInWithEmailAndPassword(correo, contrasena)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -67,14 +67,14 @@ public class ActivitySignin extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onLogin(View v){
+    public void onSignIn(View v){
         EditText correo = findViewById(R.id.correo);
         EditText contrasena = findViewById(R.id.contrasena);
 
         String emailString = correo.getText().toString();
         String contrasenaString= contrasena.getText().toString();
 
-        this.login(emailString,contrasenaString);
+        this.SignIn(emailString,contrasenaString);
     }
 
 }

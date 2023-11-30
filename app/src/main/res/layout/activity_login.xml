@@ -127,7 +127,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/ingresar"
             android:textStyle="normal|bold"
-            android:onClick="signIn"
+            android:onClick="onLogIn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
