@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -72,18 +73,24 @@ public class ActivityLogin extends AppCompatActivity {
     }
 
     public void LogIn(String correo, String contrasena) {
-        mAuth.createUserWithEmailAndPassword(correo, contrasena).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    // La sesión se inició correctamente
-                    Toast.makeText(ActivityLogin.this, "Sesión iniciada", Toast.LENGTH_SHORT).show();
-                } else {
-                    // La sesión no se inició correctamente
-                    Toast.makeText(ActivityLogin.this, "Error al iniciar sesión", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        mAuth.signInWithEmailAndPassword(correo, contrasena)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("TAG", "signInWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                        } else {
+                            Log.w("TAG", "signInWithEmail:failure", task.getException());
+                            Toast.makeText(ActivityLogin.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
 
@@ -94,7 +101,12 @@ public class ActivityLogin extends AppCompatActivity {
         String emailString = correo.getText().toString();
         String contrasenaString= contrasena.getText().toString();
 
-        this.LogIn(emailString,contrasenaString);
+        if (TextUtils.isEmpty(emailString) || TextUtils.isEmpty(contrasenaString)) {
+            Toast.makeText(this, "Correo y contraseña son obligatorios", Toast.LENGTH_SHORT).show();
+        } else {
+            this.LogIn(emailString,contrasenaString);
+        }
+
     }
 
     public void openRegistrationActivity(View v){

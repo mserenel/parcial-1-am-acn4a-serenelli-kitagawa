@@ -41,25 +41,22 @@ public class ActivitySignin extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     public void SignIn(String correo, String contrasena) {
-        mAuth.signInWithEmailAndPassword(correo, contrasena)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("TAG", "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            startActivity(intent);
-                        } else {
-                            Log.w("TAG", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(ActivitySignin.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+        mAuth.createUserWithEmailAndPassword(correo, contrasena).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    // La sesión se inició correctamente
+                    Toast.makeText(ActivitySignin.this, "Registro existoso", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), ActivityLogin.class);
+                    startActivity(intent);
+                } else {
+                    // La sesión no se inició correctamente
+                    Toast.makeText(ActivitySignin.this, "Error al registrarse", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
+
 
 
     public void openInicioActivity(View v) {
@@ -67,14 +64,17 @@ public class ActivitySignin extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onSignIn(View v){
+    public void onSignIn(View v) {
         EditText correo = findViewById(R.id.correo);
         EditText contrasena = findViewById(R.id.contrasena);
 
         String emailString = correo.getText().toString();
-        String contrasenaString= contrasena.getText().toString();
+        String contrasenaString = contrasena.getText().toString();
 
-        this.SignIn(emailString,contrasenaString);
+        if (TextUtils.isEmpty(emailString) || TextUtils.isEmpty(contrasenaString)) {
+            Toast.makeText(this, "Correo y contraseña son obligatorios", Toast.LENGTH_SHORT).show();
+        } else {
+            this.SignIn(emailString, contrasenaString);
+        }
     }
-
 }
