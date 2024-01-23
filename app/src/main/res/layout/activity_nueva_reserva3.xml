@@ -77,7 +77,7 @@
                 android:layout_margin="10dp"
                 android:autoSizeTextType="uniform"
                 android:background="@color/gris"
-                android:text="SELECCIONE RESTAURANTE"
+                android:text="SELECCIONE FECHA"
                 android:textAlignment="center"
                 android:textColor="@color/negro"
                 android:textSize="24sp"
@@ -85,68 +85,45 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="369dp"
-                    android:layout_height="275dp"
-                    android:src="@drawable/la_parolaccia_001" />
-
-                <TextView
-                    android:layout_width="371dp"
-                    android:layout_height="wrap_content"
-                    android:autoSizeTextType="uniform"
-                    android:background="@color/rojo"
-                    android:text="@string/la_parolaccia"
-                    android:textAlignment="center"
-                    android:textColor="#F8F6F6"
-                    android:textSize="24sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="369dp"
-                    android:layout_height="275dp"
-                    android:src="@drawable/bistecca" />
+                <Button
+                    android:id="@+id/abrirCalendario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/abrir_calendario"
+                    android:onClick="abrirCalendario"/>
 
                 <TextView
-                    android:layout_width="371dp"
-                    android:layout_height="wrap_content"
-                    android:autoSizeTextType="uniform"
-                    android:background="@color/rojo"
-                    android:text="@string/la_bistecca"
+                    android:id="@+id/textView1"
+                    android:background="@color/gris"
+                    android:layout_width="235dp"
+                    android:layout_height="36dp"
                     android:textAlignment="center"
-                    android:textColor="#F8F6F6"
-                    android:textSize="24sp" />
-            </LinearLayout>
+                    android:textColor="@color/negro"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="369dp"
-                    android:layout_height="275dp"
-                    android:src="@drawable/gourmetporteno" />
+                <Button
+                    android:id="@+id/abrirReloj"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/abrir_reloj"
+                    android:onClick="abrirReloj"/>
 
                 <TextView
-                    android:layout_width="371dp"
-                    android:layout_height="wrap_content"
-                    android:autoSizeTextType="uniform"
-                    android:background="@color/rojo"
-                    android:text="@string/gourmet_porteno"
+                    android:id="@+id/textView2"
+                    android:background="@color/gris"
+                    android:layout_width="235dp"
+                    android:layout_height="36dp"
                     android:textAlignment="center"
-                    android:textColor="#F8F6F6"
-                    android:textSize="24sp" />
+                    android:textColor="@color/negro"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -156,20 +133,12 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="369dp"
-                    android:layout_height="275dp"
-                    android:src="@drawable/hardrock" />
-
-                <TextView
-                    android:layout_width="371dp"
+                <Button
+                    android:id="@+id/botonGuardar"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:autoSizeTextType="uniform"
-                    android:background="@color/rojo"
-                    android:text="@string/hardrock"
-                    android:textAlignment="center"
-                    android:textColor="#F8F6F6"
-                    android:textSize="24sp" />
+                    android:text="@string/guardar" />
+
             </LinearLayout>
 
             <LinearLayout

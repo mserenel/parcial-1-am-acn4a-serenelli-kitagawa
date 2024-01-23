@@ -16,9 +16,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+
+        if (intent.hasExtra("correo_usuario")) {
+            String correoUsuario = intent.getStringExtra("correo_usuario");
+            Toast.makeText(this, "¡Bienvenido, " + correoUsuario + "!", Toast.LENGTH_SHORT).show();
+        }
+
     }
     public void OpenReservaActivity(View v){
         Intent intent = new Intent(this, ActivityNuevaReserva.class);
+        startActivity(intent);
+    }
+
+   public void OpenMisReservas(View v){
+        Intent intent = new Intent(this, ActivityMisReservas.class);
+        startActivity(intent);
+    }
+
+    public void OpenCalendario(View v){
+        Intent intent = new Intent(this, ActivityNuevaReserva2.class);
         startActivity(intent);
     }
 }

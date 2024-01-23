@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -58,34 +59,40 @@
         android:gravity="center_horizontal|center_vertical"
         android:orientation="vertical"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header"
-        tools:layout_constraintTop_toBottomOf="@id/header">
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:autoSizeTextType="uniform"
+            android:background="@color/gris"
+            android:text="SELECCIONE COMENSALES"
+            android:textAlignment="center"
+            android:textColor="@color/negro"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <NumberPicker
+            android:id="@+id/numberPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/gris"/>
 
         <Button
-            android:id="@+id/mis_reservas"
-            android:text="@string/mis_reservas"
-            android:textStyle="normal|bold"
-            android:layout_width="306dp"
-            android:layout_height="55dp"
-            android:layout_marginBottom="20dp"
-            android:onClick="OpenMisReservas"
-            />
-
+            android:id="@+id/botonGuardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/guardar" />
 
         <Button
-            android:id="@+id/nueva_reserva"
-            android:text="@string/nueva_reserva"
-            android:textStyle="normal|bold"
-            android:layout_width="306dp"
-            android:layout_height="55dp"
-            android:layout_marginBottom="20dp"
-            android:onClick="OpenCalendario"
-
- />
-
+            android:id="@+id/botonRegresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Volver a la pagina anterior"
+            android:layout_marginBottom="20dp" />
 
     </LinearLayout>
 

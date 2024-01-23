@@ -20,6 +20,10 @@
     <string name="la_bistecca">La Bistecca</string>
     <string name="la_parolaccia">La Parolaccia</string>
     <string name="reintentar" />
+    <string name="mis_resevas">MIS RESEVAS</string>
+    <string name="abrir_calendario">Abrir Calendario</string>
+    <string name="abrir_reloj">Abrir Reloj</string>
+    <string name="guardar">Guardar</string>
     <string-array name="sexo">
         <item>NO ACLARAR</item>
         <item>"MASCULINO"</item>
