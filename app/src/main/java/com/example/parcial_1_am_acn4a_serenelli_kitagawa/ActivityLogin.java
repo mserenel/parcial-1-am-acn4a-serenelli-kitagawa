@@ -27,6 +27,8 @@ public class ActivityLogin extends AppCompatActivity {
     private String correo;
     private String contrasena;
 
+
+
     public void checkConnectiononClick(View view){
         checkConnection();
     }
@@ -57,6 +59,7 @@ public class ActivityLogin extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         checkConnection();
         mAuth = FirebaseAuth.getInstance();
+
     }
 
     @Override
