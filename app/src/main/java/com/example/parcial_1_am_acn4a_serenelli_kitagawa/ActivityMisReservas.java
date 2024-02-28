@@ -2,6 +2,7 @@ package com.example.parcial_1_am_acn4a_serenelli_kitagawa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,5 +20,9 @@ public class ActivityMisReservas extends AppCompatActivity {
                 onBackPressed();
             }
         });
+    }
+    public void volverAMain(View v){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

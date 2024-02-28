@@ -2,53 +2,84 @@ package com.example.parcial_1_am_acn4a_serenelli_kitagawa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.DatePicker;
-import android.widget.TextView;
-import android.widget.TimePicker;
+import android.widget.Button;
+import android.widget.Toast;
 
-import java.util.Calendar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ActivityNuevaReserva3 extends AppCompatActivity {
 
-    TextView tv;
-    TextView tv2;
+    private FirebaseFirestore db;
+    private FirebaseAuth mAuth;
+    private Button botonMostrarDatos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nueva_reserva3);
-        tv=findViewById(R.id.textView1);
-        tv2=findViewById(R.id.textView2);
-    }
-    public void abrirCalendario(View view){
-        Calendar cal= Calendar.getInstance();
-        int anio = cal.get(Calendar.YEAR);
-        int mes = cal.get(Calendar.MONTH);
-        int dia = cal.get(Calendar.DAY_OF_MONTH);
 
-        DatePickerDialog dpd = new DatePickerDialog(ActivityNuevaReserva3.this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                String fecha = dayOfMonth + "/" + (month +1) + "/" + year;
-                tv.setText(fecha);
-            }
-        },anio, mes,dia);
-        dpd.show();
-    }
-    public void abrirReloj(View view){
-        Calendar cal= Calendar.getInstance();
-        int hora = cal.get(Calendar.HOUR_OF_DAY);
-        int minutos = cal.get(Calendar.MINUTE);
+        db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
-        TimePickerDialog tdp = new TimePickerDialog(ActivityNuevaReserva3.this, new TimePickerDialog.OnTimeSetListener() {
+        botonMostrarDatos = findViewById(R.id.btnMostrarDatos);
+        botonMostrarDatos.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                tv2.setText(hourOfDay + ":" + minute);
+            public void onClick(View v) {
+                mostrarDatos();
             }
-        },hora, minutos,false);
-        tdp.show();
+        });
+    }
+
+    private void mostrarDatos() {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+            db.collection("Users")
+                    .document(userId)
+                    .get()
+                    .addOnSuccessListener(documentSnapshot -> {
+                        if (documentSnapshot.exists()) {
+                            User userData = documentSnapshot.toObject(User.class);
+                            if (userData != null) {
+                                db.collection("Restaurante")
+                                        .document(userId)
+                                        .get()
+                                        .addOnSuccessListener(restauranteDocumentSnapshot -> {
+                                            if (restauranteDocumentSnapshot.exists()) {
+                                                Restaurante restaurante = restauranteDocumentSnapshot.toObject(Restaurante.class);
+                                                if (restaurante != null) {
+                                                    db.collection("Comensales")
+                                                            .document(userId)
+                                                            .get()
+                                                            .addOnSuccessListener(comensalesDocumentSnapshot -> {
+                                                                if (comensalesDocumentSnapshot.exists()) {
+                                                                    Comensales comensales = comensalesDocumentSnapshot.toObject(Comensales.class);
+                                                                    if (comensales != null) {
+                                                                        db.collection("Dia y horario")
+                                                                                .document(userId)
+                                                                                .get()
+                                                                                .addOnSuccessListener(fechaDocumentSnapshot -> {
+                                                                                    if (fechaDocumentSnapshot.exists()) {
+                                                                                        String fecha = fechaDocumentSnapshot.getString("fecha");
+                                                                                        String hora = fechaDocumentSnapshot.getString("hora");
+                                                                                        String textoBoton = "Usuario: " + userData.getNombre() + " " + userData.getApellido() + "\nRestaurante: " + restaurante.getNombre() + "\nComensales: " + comensales.getCantidad() + "\nFecha: " + fecha + "\nHora: " + hora;
+                                                                                        botonMostrarDatos.setText(textoBoton);
+                                                                                    }
+                                                                                });
+                                                                    }
+                                                                }
+                                                            });
+                                                }
+                                            }
+                                        });
+                            }
+                        }
+                    });
+        }
     }
 }

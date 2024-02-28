@@ -15,13 +15,13 @@
         android:theme="@style/Theme.Parcial_1_am_acn4a_serenelli_kitagawa"
         tools:targetApi="31">
         <activity
-            android:name=".ActivityNuevaReserva3"
-            android:exported="false" />
-        <activity
             android:name=".ActivityNuevaReserva2"
             android:exported="false" />
         <activity
             android:name=".ActivityNuevaReserva1"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityNuevaReserva3"
             android:exported="false" />
         <activity
             android:name=".ActivityMisReservas"

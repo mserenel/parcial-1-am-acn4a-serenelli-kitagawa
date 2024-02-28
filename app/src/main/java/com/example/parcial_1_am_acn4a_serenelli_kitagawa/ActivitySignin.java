@@ -55,14 +55,13 @@ public class ActivitySignin extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     // La sesión se inició correctamente
-                    Toast.makeText(ActivitySignin.this, "Registro existoso", Toast.LENGTH_SHORT).show();
-
-                    // Agregar datos a Firestore
-                    FirebaseUser user = mAuth.getCurrentUser();
-                    if (user != null) {
-                        addUserToFirestore(user.getUid(), nombre, apellido, correo, nacimiento, sexo);
+                    FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                    if (firebaseUser != null) {
+                        String userId = firebaseUser.getUid();
+                        User user = new User(userId, nombre, apellido, correo, nacimiento, sexo);
+                        addUserToFirestore(userId, user);
                     }
-
+                    Toast.makeText(ActivitySignin.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), ActivityLogin.class);
                     startActivity(intent);
                 } else {
@@ -73,27 +72,28 @@ public class ActivitySignin extends AppCompatActivity {
         });
     }
 
-    private void addUserToFirestore(String userId, String nombre, String apellido, String correo, String nacimiento, String sexo) {
-        Map<String, Object> user = new HashMap<>();
-        user.put("nombre", nombre);
-        user.put("apellido", apellido);
-        user.put("correo", correo);
-        user.put("nacimiento", nacimiento);
-        user.put("sexo", sexo);
+    private void addUserToFirestore(String userId, User user) {
+        Map<String, Object> userData = new HashMap<>();
+        userData.put("userId", user.getUserId());
+        userData.put("nombre", user.getNombre());
+        userData.put("apellido", user.getApellido());
+        userData.put("correo", user.getCorreo());
+        userData.put("nacimiento", user.getNacimiento());
+        userData.put("sexo", user.getSexo());
 
         db.collection("Users")
                 .document(userId)
-                .set(user, SetOptions.merge())
+                .set(userData, SetOptions.merge())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "Documento agregado exitosamente!");
+                        Log.d(TAG, "Usuario agregado a Firestore correctamente");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error al agregar documento", e);
+                        Log.e(TAG, "Error al agregar usuario a Firestore", e);
                     }
                 });
     }

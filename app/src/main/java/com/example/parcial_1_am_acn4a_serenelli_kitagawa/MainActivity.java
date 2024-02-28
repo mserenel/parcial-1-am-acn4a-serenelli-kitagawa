@@ -34,8 +34,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void OpenCalendario(View v){
-        Intent intent = new Intent(this, ActivityNuevaReserva2.class);
-        startActivity(intent);
-    }
 }
