@@ -83,22 +83,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="369dp"
-                    android:layout_height="275dp"
-                    android:src="@drawable/hardrock" />
-
                 <TextView
+                    android:id="@+id/textViewDatos"
                     android:layout_width="371dp"
                     android:layout_height="wrap_content"
                     android:autoSizeTextType="uniform"
                     android:background="@color/rojo"
-                    android:text="@string/hardrock"
                     android:textAlignment="center"
                     android:textColor="#F8F6F6"
                     android:textSize="24sp" />
@@ -106,7 +101,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -115,11 +110,10 @@
                     android:id="@+id/botonRegresar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="volverAMain"
-                    android:text="Volver a la pagina anterior" />
+                    android:onClick="volverAMenuPrincipal"
+                    android:text="Volver al menu principal" />
 
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
